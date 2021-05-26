@@ -1,1 +1,3 @@
 # mrp_vehicle_dashboard
+
+ensure mrp_vehicle_dashboard
