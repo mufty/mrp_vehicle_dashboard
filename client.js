@@ -61,7 +61,8 @@ setInterval(() => {
                         currentCarLS_r: carLS_r,
                         currentCarLS_o: carLS_o,
                         currentCarLS_h: carLS_h,
-                        playerID: GetPlayerServerId(GetPlayerIndex())
+                        playerID: GetPlayerServerId(GetPlayerIndex()),
+                        speedUnits: speedUnits
                     }));
                 } else {
                     await MRP_CLIENT.sleep(100);

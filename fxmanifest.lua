@@ -12,6 +12,7 @@ dependencies {
 }
 
 files {
+    'ui/font/made-black.otf',
     'ui/scripts/hud.js',
     'ui/lib/gauge.min.js',
     'ui/styles/style.css',

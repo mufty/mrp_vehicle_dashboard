@@ -35,6 +35,8 @@ $(function() {
                 }
                 // Vehicle RPM display
                 $("#rpm").attr("data-value", calcRpm.toFixed(2));
+                $(".speed").html(data.currentSpeedTranslated);
+                $(".unit").html(data.speedUnits);
                 $('body').show();
             default:
                 break;
