@@ -22,8 +22,10 @@ setInterval(() => {
                 let ccarIL = GetVehicleIndicatorLights(playerCar);
                 let ccarAcceleration = IsControlPressed(0, 71);
                 let ccarHandbrake = GetVehicleHandbrake(playerCar);
-                let ccarBrakeABS = (GetVehicleWheelSpeed(playerCar, 0) <= 0.0) && (carSpeed > 0.0)
+                let ccarBrakeABS = (GetVehicleWheelSpeed(playerCar, 0) <= 0.0) && (carSpeed > 0.0);
                 let [ccarLS_r, ccarLS_o, ccarLS_h] = GetVehicleLightsState(playerCar);
+                let fuelLevel = GetVehicleFuelLevel(playerCar);
+                let oilLevel = GetVehicleOilLevel(playerCar);
 
                 let update = false;
                 if (carRPM != ccarRPM || ccarSpeed != carSpeed || ccarGear != carGear || carIL != ccarIL || ccarAcceleration != carAcceleration ||
@@ -62,7 +64,9 @@ setInterval(() => {
                         currentCarLS_o: carLS_o,
                         currentCarLS_h: carLS_h,
                         playerID: GetPlayerServerId(GetPlayerIndex()),
-                        speedUnits: speedUnits
+                        speedUnits: speedUnits,
+                        fuelLevel: fuelLevel,
+                        oilLevel: oilLevel
                     }));
                 } else {
                     await MRP_CLIENT.sleep(100);

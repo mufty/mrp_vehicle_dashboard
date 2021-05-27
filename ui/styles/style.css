@@ -36,3 +36,47 @@ body {
     position: relative;
     bottom: 70px;
 }
+
+svg.fuel-progress {
+    position: absolute;
+    bottom: 70px;
+    right: 42%;
+}
+
+svg.oil-progress {
+    position: absolute;
+    bottom: 70px;
+    left: 42%;
+}
+
+svg.radial-progress {
+    height: auto;
+    max-width: 40px;
+    padding: 1em;
+    transform: rotate(-90deg);
+    width: 100%;
+}
+
+svg.radial-progress circle {
+    fill: rgba(0, 0, 0, 0);
+    stroke: #fff;
+    stroke-dashoffset: 219.91148575129;
+    stroke-width: 10;
+}
+
+svg.radial-progress circle.incomplete {
+    opacity: 0.25;
+}
+
+svg.radial-progress circle.complete {
+    stroke-dasharray: 219.91148575129;
+}
+
+svg.radial-progress text {
+    fill: #fff;
+    text-anchor: middle;
+}
+
+/*svg.radial-progress circle {
+    stroke: #a2ed56;
+}*/

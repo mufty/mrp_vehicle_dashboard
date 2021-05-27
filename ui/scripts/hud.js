@@ -37,6 +37,23 @@ $(function() {
                 $("#rpm").attr("data-value", calcRpm.toFixed(2));
                 $(".speed").html(data.currentSpeedTranslated);
                 $(".unit").html(data.speedUnits);
+
+                if (data.fuelLevel) {
+                    let radius = $('.fuel-progress circle.complete').attr('r');
+                    let circumference = 2 * Math.PI * radius;
+                    let strokeDashOffset = circumference - ((data.fuelLevel * circumference) / 100);
+                    $('.fuel-progress circle.complete').css('stroke-dashoffset', strokeDashOffset);
+                    $('.fuel-progress .percentage').text(Math.round(data.fuelLevel) + "%");
+                }
+
+                if (data.oilLevel) {
+                    let radius = $('.oil-progress circle.complete').attr('r');
+                    let circumference = 2 * Math.PI * radius;
+                    let strokeDashOffset = circumference - ((data.oilLevel * circumference) / 100);
+                    $('.oil-progress circle.complete').css('stroke-dashoffset', strokeDashOffset);
+                    $('.oil-progress .percentage').text(Math.round(data.oilLevel) + "%");
+                }
+
                 $('body').show();
             default:
                 break;
