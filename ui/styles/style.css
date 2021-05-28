@@ -17,7 +17,7 @@ body {
     width: 100%;
     text-align: center;
     position: fixed;
-    bottom: 15px;
+    bottom: -30px;
 }
 
 #rpm {
@@ -37,7 +37,7 @@ body {
     bottom: 70px;
 }
 
-svg.fuel-progress {
+/*svg.fuel-progress {
     position: absolute;
     bottom: 70px;
     right: 42%;
@@ -47,8 +47,7 @@ svg.oil-progress {
     position: absolute;
     bottom: 70px;
     left: 42%;
-}
-
+}*/
 svg.radial-progress {
     height: auto;
     max-width: 40px;
@@ -77,6 +76,33 @@ svg.radial-progress text {
     text-anchor: middle;
 }
 
-/*svg.radial-progress circle {
-    stroke: #a2ed56;
-}*/
+.oil img, .fuel img {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    bottom: 27px;
+    left: 29px;
+}
+
+.belt {
+    background-image: url(../icons/033-seat-belt_red.png);
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 66px;
+    left: 22px;
+}
+
+.oil, .fuel {
+    position: absolute;
+    bottom: 70px;
+}
+
+.oil {
+    left: 42%;
+}
+
+.fuel {
+    right: 42%;
+}

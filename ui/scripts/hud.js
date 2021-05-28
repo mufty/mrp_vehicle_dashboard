@@ -43,7 +43,14 @@ $(function() {
                     let circumference = 2 * Math.PI * radius;
                     let strokeDashOffset = circumference - ((data.fuelLevel * circumference) / 100);
                     $('.fuel-progress circle.complete').css('stroke-dashoffset', strokeDashOffset);
-                    $('.fuel-progress .percentage').text(Math.round(data.fuelLevel) + "%");
+                    if (Math.round(data.fuelLevel) < 10) {
+                        $('svg.fuel-progress circle').css('stroke', '#c61b26');
+                        $('.fuel img').attr('src', 'icons/030-gas-fuel_red.png');
+                    } else {
+                        $('svg.fuel-progress circle').css('stroke', '#ffffff');
+                        $('.fuel img').attr('src', 'icons/030-gas-fuel_white.png');
+                    }
+                    //$('.fuel-progress .percentage').text(Math.round(data.fuelLevel) + "%");
                 }
 
                 if (data.oilLevel) {
@@ -51,10 +58,24 @@ $(function() {
                     let circumference = 2 * Math.PI * radius;
                     let strokeDashOffset = circumference - ((data.oilLevel * circumference) / 100);
                     $('.oil-progress circle.complete').css('stroke-dashoffset', strokeDashOffset);
-                    $('.oil-progress .percentage').text(Math.round(data.oilLevel) + "%");
+                    if (Math.round(data.oilLevel) < 10) {
+                        $('svg.oil-progress circle').css('stroke', '#c61b26');
+                        $('.oil img').attr('src', 'icons/035-car-oil_red.png');
+                    } else {
+                        $('svg.oil-progress circle').css('stroke', '#ffffff');
+                        $('.oil img').attr('src', 'icons/035-car-oil_white.png');
+                    }
+                    //$('.oil-progress .percentage').text(Math.round(data.oilLevel) + "%");
                 }
 
                 $('body').show();
+                break;
+            case "beltTrigger":
+                if (data.beltOn)
+                    $('.belt').hide();
+                else
+                    $('.belt').show();
+                break;
             default:
                 break;
         }

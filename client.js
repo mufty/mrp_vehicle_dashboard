@@ -81,3 +81,10 @@ setInterval(() => {
     };
     cycle();
 }, 50);
+
+on('mrp:vehicle:seatbelt:change', (beltOn) => {
+    SendNuiMessage(JSON.stringify({
+        type: 'beltTrigger',
+        beltOn: beltOn
+    }));
+});
