@@ -1,11 +1,5 @@
-MRP_CLIENT = null;
+eval(LoadResourceFile('mrp_core', 'client/helpers.js'));
 let carRPM, carSpeed, carGear, carIL, carAcceleration, carHandbrake, carBrakeABS, carLS_r, carLS_o, carLS_h;
-
-emit('mrp:getSharedObject', obj => MRP_CLIENT = obj);
-
-while (MRP_CLIENT == null) {
-    print('Waiting for shared object....');
-}
 
 setInterval(() => {
     let cycle = async () => {
@@ -69,14 +63,14 @@ setInterval(() => {
                         oilLevel: oilLevel
                     }));
                 } else {
-                    await MRP_CLIENT.sleep(100);
+                    await utils.sleep(100);
                 }
             }
         } else {
             SendNuiMessage(JSON.stringify({
                 type: 'hide'
             }));
-            await MRP_CLIENT.sleep(100);
+            await utils.sleep(100);
         }
     };
     cycle();
