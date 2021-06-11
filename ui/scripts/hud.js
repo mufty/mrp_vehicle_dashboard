@@ -3,6 +3,8 @@ let isOverLoad = false;
 let s_Rpm = 0.0;
 let o_rpm;
 let currentCarAcceleration;
+let degradingFailureThreshold = 677.0;
+let cascadingFailureThreshold = 310.0;
 
 $(function() {
     //gauge.update();
@@ -66,6 +68,17 @@ $(function() {
                         $('.oil img').attr('src', 'icons/035-car-oil_white.png');
                     }
                     //$('.oil-progress .percentage').text(Math.round(data.oilLevel) + "%");
+                }
+
+                if (data.engineHealth && data.engineHealth <= cascadingFailureThreshold) {
+                    $('.engine').removeClass('orange');
+                    $('.engine').addClass('red');
+                } else if (data.engineHealth && data.engineHealth <= degradingFailureThreshold) {
+                    $('.engine').removeClass('red');
+                    $('.engine').addClass('orange');
+                } else {
+                    $('.engine').removeClass('red');
+                    $('.engine').removeClass('orange');
                 }
 
                 $('body').show();

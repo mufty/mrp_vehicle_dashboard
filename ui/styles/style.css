@@ -94,6 +94,23 @@ svg.radial-progress text {
     left: 22px;
 }
 
+.engine {
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 66px;
+    left: 62px;
+}
+
+.engine.orange {
+    background-image: url(../icons/007-motor_orange.png);
+}
+
+.engine.red {
+    background-image: url(../icons/007-motor_red.png);
+}
+
 .oil, .fuel {
     position: absolute;
     bottom: 70px;
