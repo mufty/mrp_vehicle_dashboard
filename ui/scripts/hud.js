@@ -81,6 +81,17 @@ $(function() {
                     $('.engine').removeClass('orange');
                 }
 
+                if (data.tankHealth && data.tankHealth <= cascadingFailureThreshold) {
+                    $('.tank').removeClass('orange');
+                    $('.tank').addClass('red');
+                } else if (data.tankHealth && data.tankHealth <= degradingFailureThreshold) {
+                    $('.tank').removeClass('red');
+                    $('.tank').addClass('orange');
+                } else {
+                    $('.tank').removeClass('red');
+                    $('.tank').removeClass('orange');
+                }
+
                 $('body').show();
                 break;
             case "beltTrigger":

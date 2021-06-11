@@ -111,6 +111,23 @@ svg.radial-progress text {
     background-image: url(../icons/007-motor_red.png);
 }
 
+.tank {
+    background-size: 25px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 66px;
+    left: 102px;
+}
+
+.tank.orange {
+    background-image: url(../icons/010-oil_orange.png);
+}
+
+.tank.red {
+    background-image: url(../icons/010-oil_red.png);
+}
+
 .oil, .fuel {
     position: absolute;
     bottom: 70px;

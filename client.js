@@ -1,5 +1,5 @@
 eval(LoadResourceFile('mrp_core', 'client/helpers.js'));
-let carRPM, carSpeed, carGear, carIL, carAcceleration, carHandbrake, carBrakeABS, carLS_r, carLS_o, carLS_h, fuelLevel, oilLevel, engineHealth;
+let carRPM, carSpeed, carGear, carIL, carAcceleration, carHandbrake, carBrakeABS, carLS_r, carLS_o, carLS_h, fuelLevel, oilLevel, engineHealth, tankHealth;
 
 setInterval(() => {
     let cycle = async () => {
@@ -21,11 +21,12 @@ setInterval(() => {
                 let ccfuelLevel = GetVehicleFuelLevel(playerCar);
                 let ccoilLevel = GetVehicleOilLevel(playerCar);
                 let ccengineHealth = GetVehicleEngineHealth(playerCar);
+                let cctankHealth = GetVehiclePetrolTankHealth(cctankHealth);
 
                 let update = false;
                 if (carRPM != ccarRPM || ccarSpeed != carSpeed || ccarGear != carGear || carIL != ccarIL || ccarAcceleration != carAcceleration ||
                     ccarHandbrake != carHandbrake || ccarBrakeABS != carBrakeABS || ccarLS_r != carLS_r || ccarLS_o != carLS_o || ccarLS_h != carLS_h ||
-                    ccfuelLevel != fuelLevel || ccoilLevel != oilLevel || ccengineHealth != engineHealth)
+                    ccfuelLevel != fuelLevel || ccoilLevel != oilLevel || ccengineHealth != engineHealth || cctankHealth != tankHealth)
                     update = true;
 
                 if (update) {
@@ -42,6 +43,7 @@ setInterval(() => {
                     fuelLevel = ccfuelLevel;
                     oilLevel = ccoilLevel;
                     engineHealth = ccengineHealth;
+                    tankHealth = cctankHealth;
 
                     let currentSpeedTranslated = Math.ceil(carSpeed * 3.6);
 
@@ -66,7 +68,8 @@ setInterval(() => {
                         speedUnits: speedUnits,
                         fuelLevel: fuelLevel,
                         oilLevel: oilLevel,
-                        engineHealth: engineHealth
+                        engineHealth: engineHealth,
+                        tankHealth: tankHealth
                     }));
                 } else {
                     await utils.sleep(100);
