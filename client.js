@@ -21,7 +21,7 @@ setInterval(() => {
                 let ccfuelLevel = GetVehicleFuelLevel(playerCar);
                 let ccoilLevel = GetVehicleOilLevel(playerCar);
                 let ccengineHealth = GetVehicleEngineHealth(playerCar);
-                let cctankHealth = GetVehiclePetrolTankHealth(cctankHealth);
+                let cctankHealth = GetVehiclePetrolTankHealth(playerCar);
 
                 let update = false;
                 if (carRPM != ccarRPM || ccarSpeed != carSpeed || ccarGear != carGear || carIL != ccarIL || ccarAcceleration != carAcceleration ||
